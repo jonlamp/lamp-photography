@@ -23,7 +23,7 @@
             top:0;
             z-index:1;
             background:#EEF0F2;
-            height: 20vh;
+            height: 25vh;
         }
         .mIcon {
             opacity:0;
@@ -49,7 +49,7 @@
         }
         .container1 {
             width: 80vw;
-            margin-top: 15vh;
+            margin-top: 10vh;
             margin-left: auto;
             margin-right: auto;
             padding-top: 5vh;
@@ -74,52 +74,87 @@
         .logo1 {
             /*position: absolute;*/
             max-height: 10vh;
+            max-width: 15vw;
+            padding-top:2vh;
         }
         #modal {
             z-index: 2;
             position: fixed;
             height: 100vh;
             width: 100vw;
-            background-color: rgba(53, 59, 60, 0.7);
+            background-color: rgba(53, 59, 60, 0.95);
             top: 0;
             padding-top: 10vh;
+            padding-right: auto;
+            padding-left: auto;
         }
         #modalMain {
-            margin-right: 10vw;
-            margin-left: 10vw;
+            position:static;
+            margin-right: 15%;
+            margin-left: 15%;
         }
         #modalImg {
-            max-width: 100%;
-            max-height: 100%;
+            max-width: 55vw;
+            max-height: 70vh;
             opacity: 1;
+            margin-left: auto;
         }
         #modalTxt {
-            height: 80vh;
-            width: 20vw;
+            height: 100%;
+            width: 15vw;
             color: #353B3C;
             background-color: rgba(253, 253, 253, 0.9);
             border-top-right-radius: 10%;
             border-bottom-right-radius: 10%;
-            padding: 5vh 3vw 5vh 3vw;
+            padding: 5vh 1vw 5vh 1vw;
+            margin-right: auto;
         }
         #modalTxt dd {
             margin-bottom: 5vh;
         }
-        #modalImgContainer {
+        /*#modalImgContainer {
             height: 80vh;
             width: 60vw;
+        }*/
+        #r1 {
+            margin-top: 23vh;
+        }
+        @media screen and (max-width:800px) {
+            #modal {
+                padding-top: 2vh;
+            }
+            #modalMain {
+                margin: 0px;
+            }
+            #modalImgContainer {
+                width: 80vw;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            #modalImg {
+                max-width: 100%;
+            }
+            #modalTxt {
+                width: 80vw;
+                margin: 0px auto 0px auto;
+                border-radius: 0px;
+                padding: 2vh 2vw;
+            }
+            #modalTxt dd {
+                margin-bottom: 0;
+            }
         }
     </style>
     <script>
-    const p1={pic:"NYC_from_bridge.jpg", picName:"NYC frm BB", date:"January 21, 2019", year:2019, place:"New York City, New York", prints:"8x10"};
-    const p2={pic:"ballast_point_fincastle.jpg", picName:"Ballast Point", date:"January 21, 2019", year: 2019, place:"Fincastle, Virginia", prints:"8x11"};
-    const p3={pic:"winter_tree_micro.jpg", picName:"nuts", date:"January 21, 2019", year:2019, place:"Virginia", prints:"4x6, 8x12, 18x24"};
-    const p4={pic:"maui_lahaina.jpg", picName:"Lahaina", date:"January 21, 2019", year:2018, place:"Maui, Hawaii", prints:"11x17"};
-    const p5={pic:"church_hill_autumn.jpg", picName:"Church Hill", date:"January 21, 2019", year:2017, place:"Richmond, Virginia"};
-    const p6={pic:"richmond_from_bell_isle.jpg", picName:"RVA circa 2018", date:"January 21, 2019", year:2018, place:"Richmond, Virginia", prints:"4x6, 8x12, 12x18"};
-    const p7={pic:"bold_rock_charlottesville.jpg", picName:"Bold Rock", date:"January 21, 2019", year:2018, place:"Richmond, Virginia", prints:"4x6, 8x12, 12x18"};
-    const p8={pic:"frisbee.jpg", picName:"Martin threw a frisbee", date:"January 21, 2019", year:2018, place:"Richmond, Virginia", prints:"4x5, 8x10, 16x20"};
-    const p9={pic:"spider_web_rva.jpg", picName:"Spider's Web", date:"January 21, 2019", year:2018, place:"Richmond, Virginia", prints:"4x6, 8x12"};
+    const p1={pic:"NYC_from_bridge.jpg", picName:"NYC frm BB", date:"October 2018", year:2018, place:"New York City, New York", prints:"8x10"};
+    const p2={pic:"ballast_point_fincastle.jpg", picName:"Ballast Point", date:"December 2018", year: 2018, place:"Fincastle, Virginia", prints:"8x11"};
+    const p3={pic:"winter_tree_micro.jpg", picName:"Winter Tree", date:"November 2018", year:2018, place:"Virginia", prints:"4x6, 8x12, 18x24"};
+    const p4={pic:"maui_lahaina.jpg", picName:"Lahaina", date:"September 2018", year:2018, place:"Maui, Hawaii", prints:"11x17"};
+    const p5={pic:"church_hill_autumn.jpg", picName:"Church Hill", date:"November 2017", year:2017, place:"Richmond, Virginia"};
+    const p6={pic:"richmond_from_bell_isle.jpg", picName:"RVA circa 2017", date:"September 2017", year:2017, place:"Richmond, Virginia", prints:"4x6, 8x12, 12x18"};
+    const p7={pic:"bold_rock_charlottesville.jpg", picName:"Bold Rock", date:"February 2017", year:2017, place:"Richmond, Virginia", prints:"4x6, 8x12, 12x18"};
+    const p8={pic:"frisbee.jpg", picName:"Martin threw a frisbee", date:"December 2018", year:2018, place:"Richmond, Virginia", prints:"4x5, 8x10, 16x20"};
+    const p9={pic:"spider_web_rva.jpg", picName:"Spider's Web", date:"September 2018", year:2018, place:"Richmond, Virginia", prints:"4x6, 8x12"};
 
     function openModal(p){
         var modalPrint = "No prints available at this time.";
