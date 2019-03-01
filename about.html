@@ -3,17 +3,18 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Lamp</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <style>
         .main {
-            position: fixed;
             /*background: linear-gradient(white 40%,rgba(207, 207, 207, 0.842), white);*/
             background: linear-gradient(to bottom right, #385F71 40%, #FCAA67);
-            height: 100vh;
+            min-height: 100vh;
             width: 100vw;
             color: #353B3C;
+            z-index: -1;
         }
         .notMain {
             background: #EEF0F2;
@@ -21,7 +22,7 @@
             box-shadow: 5px 5px 20px #353B3C;
             margin-left:auto;
             margin-right: auto;
-            margin-top: 20vh;
+            margin-top: 10vh;
             padding: 5vh 3vw 2vh 3vw;
             text-align: center;
             font-size: 1em;
@@ -32,9 +33,8 @@
             transition: opacity 0.5s;
         }
         #menu {
-            position: fixed;
-            margin-top: 1vh;
-            padding: 1vh 1vw 1vh 1vw;
+            position: sticky;
+            padding: 2vh 1vw 1vh 1vw;
             width:70vw;
             margin-right: 15vw;
             margin-left: 15vw;
@@ -71,7 +71,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
-<body>
+<body style="overflow: visible;">
     <div class="main">
         <div id="menu">
                 <div class="row text">
@@ -83,7 +83,7 @@
         </div>
         <div class="notMain">
             <div class="row">
-                <div class="col-md-4"></div>
+                <div class="col-md-4"><img src="resources/me.jpg" style="border-radius: 90%; max-width: 80%; margin-top: 2vh; margin-bottom: 2vh;"/></div>
                 <div class="col-lg-8 text">
                     <p>
                         I am a photographer based out of Richmond, Virginia. I've been interested in photography for most of my life. I remember getting a little
