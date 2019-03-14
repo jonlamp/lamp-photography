@@ -128,18 +128,20 @@
                 margin: 0px;
             }
             #modalImgContainer {
-                width: 80vw;
-                margin-left: auto;
-                margin-right: auto;
+                max-height: 70vh;
+                width: 90vw;
+                margin: 0px auto 0px auto;
             }
             #modalImg {
                 max-width: 100%;
+                max-height: 70vh;
             }
             #modalTxt {
-                width: 80vw;
+                width: 90vw;
                 margin: 0px auto 0px auto;
                 border-radius: 0px;
                 padding: 2vh 2vw;
+                font-size: .75em;
             }
             #modalTxt dd {
                 margin-bottom: 0;
@@ -148,9 +150,11 @@
                 font-size: .7em;
             }
             #menu {
-                height: 45vh;
+                position: static;
             }
-            #r1{margin-top: 45vh;}
+            #r1 {
+                padding-top: 2vh;
+            }
         }
     </style>
     <script>
@@ -163,7 +167,6 @@
     const p7={pic:"bold_rock_charlottesville.jpg", picName:"Bold Rock", date:"February 2017", year:2017, place:"Richmond, Virginia", prints:"4x6, 8x12, 12x18"};
     const p8={pic:"frisbee.jpg", picName:"Martin threw a frisbee", date:"December 2018", year:2018, place:"Richmond, Virginia", prints:"4x5, 8x10, 16x20"};
     const p9={pic:"spider_web_rva.jpg", picName:"Spider's Web", date:"September 2018", year:2018, place:"Richmond, Virginia", prints:"4x6, 8x12"};
-
     function openModal(p){
         var modalPrint = "No prints available at this time.";
         document.getElementById("modalImg").src="resources/fullSize/"+ p.pic;
