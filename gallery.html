@@ -4,7 +4,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery</title>
+    <title>Lamp Photo Gallery</title>
+    <meta name="description" content="Jon Lamp is a RVA based photographer who takes what many call 'cool' pictures">
+    <meta property="og:image" content="resources/fullSize/church_hill_autumn.jpg">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <style>
@@ -91,12 +93,12 @@
         }
         #modalMain {
             position:static;
-            margin-right: 15%;
-            margin-left: 15%;
+            margin-right: 10%;
+            margin-left: 10%;
         }
         #modalImg {
-            max-width: 55vw;
-            max-height: 70vh;
+            max-width: 65vw;
+            max-height: 80vh;
             opacity: 1;
             margin-left: auto;
         }
@@ -117,7 +119,7 @@
             height: 80vh;
             width: 60vw;
         }*/
-        #r1 {
+        #r0 {
             margin-top: 23vh;
         }
         @media screen and (max-width:800px) {
@@ -152,29 +154,22 @@
             #menu {
                 position: static;
             }
-            #r1 {
+            #r0 {
                 padding-top: 2vh;
             }
         }
     </style>
+    <script src="resources/piclog.js"></script>
     <script>
-    const p1={pic:"NYC_from_bridge.jpg", picName:"NYC frm BB", date:"October 2018", year:2018, place:"New York City, New York", prints:"8x10"};
-    const p2={pic:"ballast_point_fincastle.jpg", picName:"Ballast Point", date:"December 2018", year: 2018, place:"Fincastle, Virginia", prints:"8x11"};
-    const p3={pic:"winter_tree_micro.jpg", picName:"Winter Tree", date:"November 2018", year:2018, place:"Virginia", prints:"4x6, 8x12, 18x24"};
-    const p4={pic:"maui_lahaina.jpg", picName:"Lahaina", date:"September 2018", year:2018, place:"Maui, Hawaii", prints:"11x17"};
-    const p5={pic:"church_hill_autumn.jpg", picName:"Church Hill", date:"November 2017", year:2017, place:"Richmond, Virginia"};
-    const p6={pic:"richmond_from_bell_isle.jpg", picName:"RVA circa 2017", date:"September 2017", year:2017, place:"Richmond, Virginia", prints:"4x6, 8x12, 12x18"};
-    const p7={pic:"bold_rock_charlottesville.jpg", picName:"Bold Rock", date:"February 2017", year:2017, place:"Richmond, Virginia", prints:"4x6, 8x12, 12x18"};
-    const p8={pic:"frisbee.jpg", picName:"Martin threw a frisbee", date:"December 2018", year:2018, place:"Richmond, Virginia", prints:"4x5, 8x10, 16x20"};
-    const p9={pic:"spider_web_rva.jpg", picName:"Spider's Web", date:"September 2018", year:2018, place:"Richmond, Virginia", prints:"4x6, 8x12"};
     function openModal(p){
         var modalPrint = "No prints available at this time.";
-        document.getElementById("modalImg").src="resources/fullSize/"+ p.pic;
-        document.getElementById("dateTaken").innerHTML= p.date;
-        document.getElementById("pictureName").innerHTML = p.picName;
-        document.getElementById("place").innerHTML = p.place;
-        if (p.prints) {
-            modalPrint = p.prints;
+        a = print[p];
+        document.getElementById("modalImg").src="resources/fullSize/"+ a.pic;
+        document.getElementById("dateTaken").innerHTML= a.date;
+        document.getElementById("pictureName").innerHTML = a.picName;
+        document.getElementById("place").innerHTML = a.place;
+        if (a.prints) {
+            modalPrint = a.prints;
         }
         document.getElementById("prints").innerHTML = modalPrint;
         document.getElementById("modal").style.display = "block";
@@ -182,25 +177,47 @@
     function closeModal() {
         document.getElementById("modal").style.display="none";
     }
+    function loadPics() {
+        for (i=0; i < (n/3); i++) {
+            var a = document.createElement("div");
+            a.setAttribute("class","row container1");
+            a.setAttribute("id", "r" + String(i));
+            document.getElementById("mainGallery").appendChild(a);
+        }
+        var counter = 1;
+        var trgtRow = 0;
+        for (i=0; i<n; i++) {
+            var a = document.createElement("div");
+            a.setAttribute("class", "col-lg-4 picHolder");
+            a.setAttribute("id", String(i));
+            a.onclick = function(){openModal(this.id)};
+            //a.onclick=openModal(String(i));
+            a.innerHTML = "<img src='resources/thumbnails/" + print[i].pic +"'>";
+            document.getElementById("r"+String(trgtRow)).appendChild(a);
+            //document.getElementById(tgtID).onclick = function() {openModal(event.target)};
+            counter = counter + 1;
+            if (counter > 3) {
+                trgtRow = trgtRow + 1;
+                counter = 1;
+            }
+        }
+    }
     </script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
-<body>
+<body onload="loadPics()">
     <div class="main">
     </div>
     <div id="modal" style="display:none" onclick=closeModal()>
             <div id="modalMain" class="row">
-                <div id="modalImgContainer"><img id="modalImg" src="resources/fullsize/NYC_from_bridge.jpg"/></div>
+                <div id="modalImgContainer"><img id="modalImg" src=""/></div>
                 <div id="modalTxt">
                     <dl>
                         <dt>Picture Name:</dt>
-                        <dd><span id="pictureName">NYC frm BB</span></dd>
+                        <dd><span id="pictureName">/span></dd>
                         <dt>Date Taken:</dt>
-                        <dd><span id="dateTaken">January 21, 2019</span></dd>
+                        <dd><span id="dateTaken"></span></dd>
                         <dt>Place:</dt>
-                        <dd><span id="place">New York City, New York</span></dd>
+                        <dd><span id="place"></span></dd>
                         <dt>Prints sizes available:</dt>
                         <dd><span id="prints"></span></dd>
                     </dl>
@@ -218,20 +235,12 @@
                 Click on a picture below for a higher quality version and more information. To order a print, contact me at jon@lampphotography.net. 
             </div>
         </div>
-        <div class="row container1" id="r1">
-            <div class="col-lg-4 picHolder" onclick=openModal(p1)><img src="resources/thumbnails/NYC_from_bridge.jpg" id="1r1"></div>
-            <div class="col-lg-4 picHolder" onclick=openModal(p2)><img src="resources/thumbnails/ballast_point_fincastle.jpg" id="1r2"></div>
-            <div class="col-lg-4 picHolder" onclick=openModal(p3)><img src="resources/thumbnails/winter_tree_micro.jpg" id="1r3"></div>
+        <div id="mainGallery">
+
         </div>
-        <div class="row container1" id="r2">
-                <div class="col-lg-4 picHolder" onclick=openModal(p4)><img src="resources/thumbnails/maui_lahaina.jpg" id="2r1"></div>
-                <div class="col-lg-4 picHolder" onclick=openModal(p5)><img src="resources/thumbnails/church_hill_autumn.jpg" id="2r2"></div>
-                <div class="col-lg-4 picHolder" onclick=openModal(p6)><img src="resources/thumbnails/richmond_from_bell_isle.jpg" id="2r3"></div>
-        </div>
-        <div class="row container1" id="r2">
-                <div class="col-lg-4 picHolder" onclick=openModal(p7)><img src="resources/thumbnails/bold_rock_charlottesville.jpg" id="2r1"></div>
-                <div class="col-lg-4 picHolder" onclick=openModal(p8)><img src="resources/thumbnails/frisbee.jpg" id="2r2"></div>
-                <div class="col-lg-4 picHolder" onclick=openModal(p9)><img src="resources/thumbnails/spider_web_rva.jpg" id="2r3"></div>
-        </div>
+    <!--Bootstrap cdn-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
