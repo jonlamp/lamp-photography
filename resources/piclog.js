@@ -1,0 +1,11 @@
+const p1={pic:"NYC_from_bridge.jpg", picName:"NYC frm BB", date:"October 2018", year:2018, place:"New York City, New York", prints:"8x10"};
+const p2={pic:"ballast_point_fincastle.jpg", picName:"Ballast Point", date:"December 2018", year: 2018, place:"Fincastle, Virginia", prints:"8x11"};
+const p3={pic:"winter_tree_micro.jpg", picName:"Winter Tree", date:"November 2018", year:2018, place:"Virginia", prints:"4x6, 8x12, 18x24"};
+const p4={pic:"maui_lahaina.jpg", picName:"Lahaina", date:"September 2018", year:2018, place:"Maui, Hawaii", prints:"11x17"};
+const p5={pic:"church_hill_autumn.jpg", picName:"Church Hill", date:"November 2017", year:2017, place:"Richmond, Virginia"};
+const p6={pic:"richmond_from_bell_isle.jpg", picName:"RVA circa 2017", date:"September 2017", year:2017, place:"Richmond, Virginia", prints:"4x6, 8x12, 12x18"};
+const p7={pic:"bold_rock_charlottesville.jpg", picName:"Bold Rock", date:"February 2017", year:2017, place:"Richmond, Virginia", prints:"4x6, 8x12, 12x18"};
+const p8={pic:"frisbee.jpg", picName:"Martin threw a frisbee", date:"December 2018", year:2018, place:"Richmond, Virginia", prints:"4x5, 8x10, 16x20"};
+const p9={pic:"spider_web_rva.jpg", picName:"Spider's Web", date:"September 2018", year:2018, place:"Richmond, Virginia", prints:"4x6, 8x12"};
+const n=9;
+const print = [p1, p2, p3, p4, p5, p6, p7, p8, p9];
