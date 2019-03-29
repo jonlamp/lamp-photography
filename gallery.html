@@ -75,7 +75,6 @@
             color:rgba(53, 59, 60, 0.6)
         }
         .logo1 {
-            /*position: absolute;*/
             max-height: 10vh;
             max-width: 15vw;
             padding-top:2vh;
@@ -115,13 +114,20 @@
         #modalTxt dd {
             margin-bottom: 5vh;
         }
-        /*#modalImgContainer {
-            height: 80vh;
-            width: 60vw;
-        }*/
         #r0 {
             margin-top: 23vh;
         }
+
+        #subMenu2 {
+            padding-top: 2vh;
+            color:darkgrey;
+            font-weight: 400;
+        }        
+        .active {
+            color: #EF2D56;
+            font-weight:bold;
+        }
+        #subMenu2 {cursor:pointer;}
         @media screen and (max-width:800px) {
             #modal {
                 padding-top: 2vh;
@@ -161,24 +167,26 @@
     </style>
     <script src="resources/piclog.js"></script>
     <script>
-    function openModal(p){
-        var modalPrint = "No prints available at this time.";
-        a = print[p];
-        document.getElementById("modalImg").src="resources/fullSize/"+ a.pic;
-        document.getElementById("dateTaken").innerHTML= a.date;
-        document.getElementById("pictureName").innerHTML = a.picName;
-        document.getElementById("place").innerHTML = a.place;
-        if (a.prints) {
-            modalPrint = a.prints;
+    
+    function loadPics(fl) {
+        document.getElementById("mainGallery").innerHTML="";
+        switch(fl) {
+            case "print":
+                b = print;
+                y = n;
+                document.getElementById("printBtn").classList.add("active");
+                document.getElementById("animalBtn").classList.remove("active");
+                break;
+            case "animal":
+                b = animal;
+                y = an;
+                document.getElementById("printBtn").classList.remove("active");
+                document.getElementById("animalBtn").classList.add("active");
+                break;
+            default:
+                b = print;
         }
-        document.getElementById("prints").innerHTML = modalPrint;
-        document.getElementById("modal").style.display = "block";
-    }
-    function closeModal() {
-        document.getElementById("modal").style.display="none";
-    }
-    function loadPics() {
-        for (i=0; i < (n/3); i++) {
+        for (i=0; i < (y/3); i++) {
             var a = document.createElement("div");
             a.setAttribute("class","row container1");
             a.setAttribute("id", "r" + String(i));
@@ -186,15 +194,13 @@
         }
         var counter = 1;
         var trgtRow = 0;
-        for (i=0; i<n; i++) {
+        for (i=0; i<y; i++) {
             var a = document.createElement("div");
             a.setAttribute("class", "col-lg-4 picHolder");
             a.setAttribute("id", String(i));
-            a.onclick = function(){openModal(this.id)};
-            //a.onclick=openModal(String(i));
-            a.innerHTML = "<img src='resources/thumbnails/" + print[i].pic +"'>";
+            a.onclick = function(){openModal(fl,this.id)};
+            a.innerHTML = "<img alt='" + b[i].picName + "' src='resources/" + fl +"/thumbnails/" + b[i].pic +"'>";
             document.getElementById("r"+String(trgtRow)).appendChild(a);
-            //document.getElementById(tgtID).onclick = function() {openModal(event.target)};
             counter = counter + 1;
             if (counter > 3) {
                 trgtRow = trgtRow + 1;
@@ -204,7 +210,7 @@
     }
     </script>
 </head>
-<body onload="loadPics()">
+<body onload="loadPics('print')">
     <div class="main">
     </div>
     <div id="modal" style="display:none" onclick=closeModal()>
@@ -234,11 +240,41 @@
             <div class="text" id="subMenu">
                 Click on a picture below for a higher quality version and more information. To order a print, contact me at jon@lampphotography.net. 
             </div>
+            <div class="row" id="subMenu2">
+                <div class="col-sm-6 text text-center" id="printBtn" onclick="loadPics('print')">Prints</div>
+                <div class="col-sm-6 text text-center" id="animalBtn" onclick="loadPics('animal')">Pets</div>
+            </div>
         </div>
         <div id="mainGallery">
 
         </div>
     <!--Bootstrap cdn-->
+    <script>function openModal(fl,p){
+        var modalPrint = "No prints available at this time.";
+        switch(fl) {
+            case "print":
+                a = print[p];
+                break;
+            case "animal":
+                a = animal[p];
+                break;
+            default:
+                a= print[p];
+        }
+        document.getElementById("modalImg").src="resources/"+ fl +"/fullSize/"+ a.pic;
+        document.getElementById("dateTaken").innerHTML= a.date;
+        document.getElementById("pictureName").innerHTML = a.picName;
+        document.getElementById("place").innerHTML = a.place;
+        if (a.prints) {
+            modalPrint = a.prints;
+        }
+        document.getElementById("prints").innerHTML = modalPrint;
+        document.getElementById("modal").style.display = "block";
+    }
+    function closeModal() {
+        document.getElementById("modal").style.display="none";
+    }
+    </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
