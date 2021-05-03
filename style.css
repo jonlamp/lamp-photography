@@ -8,6 +8,7 @@ h1 {
 #title {
     display:flex;
     flex-direction: row;
+    align-items:center;
 }
 #leftNav {
     position: fixed;
@@ -77,29 +78,37 @@ h1 {
 #mainImg {
     max-width: 100%;
 }
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 @media screen and (max-width: 800px){
-    #leftNav {
-        position: static;
-        z-index: 0;
-        width: 100%;
-        margin-top: 0px;
-        padding-top: 3vh;
-        text-align: center;
+    #menu-container {
+        position:initial;
+        flex-direction:column;
     }
     #main {
         position: static;
         z-index: 0;
     }
+    #title {
+        justify-content: center;
+    }
     #menu {
         margin-top: 0px;
+        flex-direction: column;
     }
     #logo {
         margin-left: auto;
         margin-right: auto;
     }
-}
-.row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    #mainImg {
+        max-width:none;
+        max-height: 60vh;
+        left: 0;
+    }
+    .menuOpt, .menuOpt a {
+        padding: 0px
+    }
 }
