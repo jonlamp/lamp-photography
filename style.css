@@ -1,0 +1,105 @@
+body {
+    font-family:"Oregano";
+}
+h1 {
+    font-family: 'Oregano', cursive;
+    font-size: 2.5em;
+}
+#title {
+    display:flex;
+    flex-direction: row;
+}
+#leftNav {
+    position: fixed;
+    background-color:#353B3C;
+    width: 20%;
+    opacity:.9;
+    height: 100%;
+    z-index:3;
+    padding-left: 2%;
+    color:#EEF0F2;
+}
+#menu-container {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    color: #353B3C;
+    background-color: white;
+    z-index: 1;
+    width: 100%;
+    padding: 5px 20px;
+    top: 0;
+}
+#main {
+    position: absolute;
+    width:100%;
+    overflow:hidden;
+    padding: 0px;
+    left:0;
+}
+
+#menu {
+    display: flex;
+    flex-direction: row;
+    padding: 0px 50px;
+    justify-content:space-evenly;
+    flex-grow: 1;
+}
+.mIcon {
+    opacity:0;
+    transition: opacity 0.5s;
+}
+.menuOpt a{
+    width: 100%;
+    padding-top: 4vh;
+    padding-bottom: 4vh;
+    padding-left: 5%;
+    transition:color .5s ease, font-size .5s ease, opacity .5s ease;
+    font-size: 1.75em;
+    color:#353B3C;
+}
+.menuOpt:hover {
+    font-size: 1.5em;
+    opacity: 1;
+    color:#FCAA67;
+    text-decoration-color:#FCAA67;
+}
+.menuOpt:hover .mIcon {
+    opacity:1;   
+}
+.logo1 {
+    max-width: 80%;
+    max-height: 125px;
+}
+#lamp {
+    margin-left:1vw;
+}
+#mainImg {
+    max-width: 100%;
+}
+@media screen and (max-width: 800px){
+    #leftNav {
+        position: static;
+        z-index: 0;
+        width: 100%;
+        margin-top: 0px;
+        padding-top: 3vh;
+        text-align: center;
+    }
+    #main {
+        position: static;
+        z-index: 0;
+    }
+    #menu {
+        margin-top: 0px;
+    }
+    #logo {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
