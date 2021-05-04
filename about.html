@@ -7,9 +7,25 @@
     <title>About Lamp</title>
     <meta name="description" content="Jon Lamp is a RVA based photographer who takes what many call 'cool' pictures">
     <meta property="og:image" content="resources/fullSize/church_hill_autumn.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <style>
+        body {
+            font-family: 'Poppins';
+            font-weight: 300;
+        }
+        #title {
+            display: flex;
+            align-items: center;
+            color: #EEF0F2;
+        }
+        #title * {
+            padding: 0px 5px;
+        }
+        #title h1 {
+            font-weight: 100; 
+        }
         .main {
             /*background: linear-gradient(white 40%,rgba(207, 207, 207, 0.842), white);*/
             background: linear-gradient(to bottom right, #385F71 40%, #FCAA67);
@@ -29,6 +45,7 @@
             text-align: center;
             font-size: 1em;
             border-radius: 30px;
+            line-height: 2.5em;
         }
         .mIcon {
             opacity:0;
@@ -63,10 +80,8 @@
             opacity:1;  
         }
         .logo1 {
-            position: absolute;
             max-height: 10vh;
             max-width: 15vw;
-            margin-top: 2vh;
         }
     </style>
    
@@ -74,12 +89,15 @@
 <body style="overflow: visible;">
     <div class="main">
         <div id="menu">
-                <div class="row text">
-                        <div class="col-sm-3"><a href="index.html"><img class="logo1" src="resources/brand2alttype.png"/></a></div>
-                        <div class="col-sm-3 menuOpt"><a href="index.html">Home <i class="fas fa-home mIcon"></i></a></div>
-                        <!--<div class="col-sm-3 menuOpt"><a href="#">Services <i class="fas fa-camera mIcon"></i></a></div>-->
-                        <div class="col-sm-3 menuOpt"><a href="gallery.html">Gallery <i class="fas fa-images mIcon"></i></a></div>
-                    </div>
+            <div class="row text">
+                <div id="title">
+                    <div><img class="logo1" src="resources/brand2alt.png"></div>
+                    <h1>Jon Lamp Photography</h1>
+                </div>
+                <div class="col-sm-3 menuOpt"><a href="index.html">Home <i class="fas fa-home mIcon"></i></a></div>
+                <!--<div class="col-sm-3 menuOpt"><a href="#">Services <i class="fas fa-camera mIcon"></i></a></div>-->
+                <div class="col-sm-3 menuOpt"><a href="gallery.html">Gallery <i class="fas fa-images mIcon"></i></a></div>
+            </div>
         </div>
         <div class="notMain">
             <div class="row">

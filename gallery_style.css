@@ -1,0 +1,189 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+}
+.main {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(to bottom right, #EEF0F2 70%, #385F71);
+    z-index:-1;
+}
+#mainGallery {
+    margin-top: 25vh;
+    max-width: 100vw;
+    padding: 0vw 3vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 1vh 0.5vw;
+    justify-items: center;
+}
+#mainGallery img {
+    height: 25em;
+}
+#menu {
+    position: fixed;
+    width:100vw;
+    margin-right: auto;
+    margin-left: auto;
+    top:0;
+    z-index:1;
+    background:#EEF0F2;
+    height: 25vh;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-content:flex-end;
+}
+#title {
+    display: flex;
+    align-items: center;
+}
+#title * {
+    padding: 0px 5px;
+}
+#title h1 {
+    font-weight: 100; 
+}
+.mIcon {
+    opacity:0;
+    transition: opacity .5s ease;
+}
+#main-menu {
+    display: flex;
+    flex-basis: 25%;
+}
+.menuOpt {
+    width: 100%;
+    text-align: center;
+    padding-top: 3vh;
+    align-self: baseline;
+}
+.menuOpt a {
+    color: #353B3C;
+    transition:color .5s ease, font-size .5s ease, opacity .5s ease;
+    font-size: 1.25em;
+}
+.menuOpt:hover a {
+    font-size: 1.5em;
+    opacity: 1;
+    color:#EF2D56;
+}
+.menuOpt:hover .mIcon {
+    opacity:1;   
+}
+.container1 {
+    width: 80vw;
+    margin-top: 10vh;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5vh;
+}
+.container1 div {
+    border-radius: 30px;
+}
+.container1:last-of-type {
+    padding-bottom: 10vh;
+}
+.picHolder img {
+    max-width: 100%;
+    cursor: pointer;
+}
+#subMenu {
+    font-size: 1.25em;
+    width: 100%;
+    padding-top: 2vh;
+    text-align: center;
+    color:rgba(53, 59, 60, 0.6)
+}
+.logo1 {
+    max-height: 10vh;
+    max-width: 15vw;
+    padding-top:2vh;
+}
+#modal {
+    z-index: 2;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(53, 59, 60, 0.95);
+    top: 0;
+    padding-top: 10vh;
+}
+#modalMain {
+    position:static;
+    display: flex;
+    justify-content: center;
+}
+#modalImg {
+    max-width: 65vw;
+    max-height: 80vh;
+    opacity: 1;
+}
+#modalTxt {
+    width: 15vw;
+    color: #353B3C;
+    background-color: rgba(253, 253, 253, 0.9);
+    border-top-right-radius: 10%;
+    border-bottom-right-radius: 10%;
+    padding: 5vh 1vw 5vh 1vw;
+}
+#modalTxt dd {
+    margin-bottom: 5vh;
+    font-size: 1.25em;
+}
+#r0 {
+    margin-top: 23vh;
+}
+
+#subMenu2 {
+    padding-top: 2vh;
+    color:darkgrey;
+    font-weight: 400;
+}
+
+#subMenu2 div {
+    display: inline;
+    padding: 15px;
+    font-size: 1.25em;
+}
+.active {
+    color: #EF2D56;
+}
+#subMenu2 {cursor:pointer;}
+@media screen and (max-width:800px) {
+    #modal {
+        padding-top: 2vh;
+    }
+    #modalMain {
+        margin: 0px;
+    }
+    #modalImgContainer {
+        max-height: 70vh;
+        width: 90vw;
+        margin: 0px auto 0px auto;
+    }
+    #modalImg {
+        max-width: 100%;
+        max-height: 70vh;
+    }
+    #modalTxt {
+        width: 90vw;
+        margin: 0px auto 0px auto;
+        border-radius: 0px;
+        padding: 2vh 2vw;
+        font-size: .75em;
+    }
+    #modalTxt dd {
+        margin-bottom: 0;
+    }
+    #submenu {
+        font-size: .7em;
+    }
+    #menu {
+        position: static;
+    }
+    #r0 {
+        padding-top: 2vh;
+    }
+}
