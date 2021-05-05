@@ -97,6 +97,7 @@ h1 {
     #main {
         position: static;
         z-index: 0;
+        height: auto;
     }
     #title {
         justify-content: center;

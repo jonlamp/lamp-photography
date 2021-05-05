@@ -152,38 +152,56 @@ body {
 }
 #subMenu2 {cursor:pointer;}
 @media screen and (max-width:800px) {
+    body {
+        padding: 0px;
+        margin: 0px;
+    }
     #modal {
         padding-top: 2vh;
     }
     #modalMain {
         margin: 0px;
+        flex-direction: column;
     }
     #modalImgContainer {
         max-height: 70vh;
-        width: 90vw;
+        width: 95vw;
         margin: 0px auto 0px auto;
     }
     #modalImg {
         max-width: 100%;
-        max-height: 70vh;
     }
     #modalTxt {
         width: 90vw;
         margin: 0px auto 0px auto;
         border-radius: 0px;
-        padding: 2vh 2vw;
+        padding: 2vh 4vw;
         font-size: .75em;
     }
     #modalTxt dd {
         margin-bottom: 0;
     }
+    #main-menu {
+        width: 100%;
+        justify-content: space-around;
+        flex-basis: inherit;
+    }
     #submenu {
         font-size: .7em;
+        width: 100%;
+        justify-content: space-around;
     }
     #menu {
         position: static;
+        height: initial;
+        background: none;
     }
-    #r0 {
-        padding-top: 2vh;
+    #mainGallery {
+        display: flex;
+        flex-direction: column;
+        margin-top: 5vh;
+    }
+    #mainGallery img {
+        height: inherit;
     }
 }
